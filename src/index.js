@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM, { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import env from 'react-dotenv';
 
 
 
