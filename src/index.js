@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import ReactDOM from "react-dom";
+import ReactDOM, { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import env from 'react-dotenv';
+
+
 
 
 import { Books } from "./components";
+
+
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -11,15 +16,16 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div id='app'>
+      <div id="app">
         <Routes>
           <Route path='/' element={<Books books={books} setBooks={setBooks} loading={loading} setLoading={setLoading} />} />
         </Routes>
       </div>
-
     </BrowserRouter>
   )
 
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+
+const root = ReactDOM.createRoot(document.getElementById('app'));
+root.render(<App />);
