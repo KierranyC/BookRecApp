@@ -3,13 +3,15 @@ import env from 'react-dotenv';
 export const fetchBooks = async () => {
   try {
 
-    const categories = 'drama'
+    const categories = 'poetry'
     const maxResults = 20;
-    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:${categories}&maxResults=${maxResults}&key=${env.API_KEY}`, {
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
+    // const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q='subject'=${categories}&maxResults=${maxResults}&orderBy:"newest"&key=${env.API_KEY}`, {
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   }
+    // })
+
+    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:'romantic+comedy'&orderBy=relevance&key=${env.API_KEY}`)
 
 
     const result = await response.json()
@@ -22,7 +24,7 @@ export const fetchBooks = async () => {
 // export const fetchBooks = async () => {
 //   try {
 
-//     const response = await fetch(`https://openlibrary.org/subjects/fiction.json?published_in=2000-2024`, {
+//     const response = await fetch(`https://openlibrary.org/subjects/fiction.json?published_in=2000`, {
 
 //     })
 
