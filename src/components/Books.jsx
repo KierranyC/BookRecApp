@@ -5,7 +5,15 @@ import { getMatchedBooks } from "./DummyData";
 
 const Books = ({ books, setBooks, loading, setLoading }) => {
 
-  const handleGetMatchedBooks = (genres) => {
+  const handleGetMatchedBooks = (mood) => {
+
+    const moodsAndGenres = {
+      bored: ['Mystery', 'Psychological Thriller', 'Horror'],
+      happy: ['Romance', 'Comedy', 'Adventure'],
+      sad: ['Drama', 'Tragedy', 'Poetry']
+    }
+
+    const genres = moodsAndGenres[mood]
     let matchedBooks = getMatchedBooks(genres);
     setBooks(matchedBooks);
   };
@@ -18,7 +26,7 @@ const Books = ({ books, setBooks, loading, setLoading }) => {
   return (
     <div>
       <h1>BOOKS</h1>
-      <button onClick={() => { handleGetMatchedBooks(['Mystery', 'Psychological Thriller', 'Horror']) }}> BORED </button>
+      <button onClick={() => { handleGetMatchedBooks('bored') }}> BORED </button>
       <h2>Since you're feeling bored, how about some ...</h2>
       {books.map(book =>
         <div id='books' key={book.id} value={book}>
