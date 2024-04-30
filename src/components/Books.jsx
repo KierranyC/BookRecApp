@@ -20,14 +20,13 @@ const Books = ({ books, setBooks, loading, setLoading }) => {
 
 
 
-
-
-
   return (
     <div>
       <h1>BOOKS</h1>
       <button onClick={() => { handleGetMatchedBooks('bored') }}> BORED </button>
-      <h2>Since you're feeling bored, how about some ...</h2>
+      <button onClick={() => { handleGetMatchedBooks('happy') }}> HAPPY </button>
+      <button onClick={() => { handleGetMatchedBooks('sad') }}> SAD </button>
+      <h2>Since you're feeling..., how about some ...</h2>
       {books.map(book =>
         <div id='books' key={book.id} value={book}>
           <h3>BOOK TITLE: {book.title}</h3>
