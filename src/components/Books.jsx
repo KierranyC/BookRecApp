@@ -11,9 +11,9 @@ const Books = ({ books, setBooks, loading, setLoading }) => {
     setMood(mood)
 
     const moodsAndGenres = {
-      bored: ['Mystery', 'Psychological Thriller', 'Horror'],
-      happy: ['Romance', 'Comedy', 'Adventure'],
-      sad: ['Drama', 'Tragedy', 'Poetry']
+      bored: ['mystery', 'psychological thriller', 'horror'],
+      happy: ['contemporary romance', 'rom-com', 'new adult romance', 'adventure'],
+      sad: ['drama', 'tragedy', 'poetry']
     }
 
     const genres = moodsAndGenres[mood]
