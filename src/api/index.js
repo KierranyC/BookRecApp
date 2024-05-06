@@ -1,37 +1,38 @@
 import env from 'react-dotenv';
 
-// testing apis for now
-export const fetchBooks = async () => {
+
+// export const fetchBooks = async (genres) => {
+//   try {
+
+
+
+//     let category = genres[Math.floor(Math.random() * genres.length)];
+//     console.log('CATEGORY:', category)
+
+//     const maxResults = 40;
+//     const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:${category}&orderBy:'relevance'&maxResults=${maxResults}&key=${env.API_KEY}`, {
+//       headers: {
+//         "Content-Type": "application/json"
+//       }
+//     })
+//     const result = await response.json();
+//     let bookArray = result.items.sort(() => Math.random() > 0.5 ? 1 : -1).slice(0, 3);
+//     console.log('BOOK ARRAY:', bookArray)
+//     return bookArray;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
+export const fetchBooks = async (genres) => {
   try {
 
-    const categories = 'poetry'
-    const maxResults = 20;
-    // const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q='subject'=${categories}&maxResults=${maxResults}&orderBy:"newest"&key=${env.API_KEY}`, {
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   }
-    // })
-
-    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:'romantic+comedy'&orderBy=relevance&key=${env.API_KEY}`)
+    let category = genres[Math.floor(Math.random() * genres.length)];
+    console.log('CATEGORY:', category);
 
 
-    const result = await response.json()
-    return result;
+
   } catch (error) {
     console.error(error)
   }
 }
-
-// export const fetchBooks = async () => {
-//   try {
-
-//     const response = await fetch(`https://openlibrary.org/subjects/fiction.json?published_in=2000`, {
-
-//     })
-
-//     const result = await response.json()
-//     return result;
-//   } catch (error) {
-//     console.error(error)
-//   }
-// }
