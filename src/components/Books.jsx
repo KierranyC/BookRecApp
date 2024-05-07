@@ -11,7 +11,7 @@ const Books = ({ books, setBooks, loading, setLoading }) => {
     setMood(mood)
 
     const moodsAndGenres = {
-      bored: ['mystery', 'psychological thriller', 'horror'],
+      bored: ['mystery', 'thriller', 'horror'],
       happy: ['contemporary romance', 'rom-com', 'new adult romance', 'adventure'],
       sad: ['drama', 'tragedy', 'poetry']
     }
@@ -32,8 +32,8 @@ const Books = ({ books, setBooks, loading, setLoading }) => {
       <button type="button" value='sad' onClick={(event) => { handleGetMatchedBooks(event.target.value) }}> SAD </button>
       <h2>Since you're feeling {mood}, how about some ...</h2>
       {books.map(book =>
-        <div id='books' key={book.id} value={book}>
-          <h3>BOOK TITLE: {book.volumeInfo.title}</h3>
+        <div id='books' key={book.key} value={book}>
+          <h3>BOOK TITLE: {book.title}</h3>
           {/* <h4>GENRE: {book.genre}</h4> */}
         </div>
       )}
